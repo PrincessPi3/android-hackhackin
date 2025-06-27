@@ -15,6 +15,16 @@ msf exploit(handler) > exploit -j
 ## Python Shitfuckery
 `python -m http.server 8787`
 
+## Self Sign an apk
+### Install tools
+1. `sudo apt update`
+2. `sudo apt install apktool gnupg2 android-tools-adb default-jdk -y`
+### Create Signing Key
+* `keytool -genkey -v -keystore android.keystore -alias android -keyalg RSA -keysize 2048 -validity 10000`
+### Sign Apk
+* `jarsigner -verbose -sigalg SHA1withRSA -digestalg SHA1 -keystore android.keystore my_app.apk android`
+
+
 ## Some Shit
 ```
 TAB

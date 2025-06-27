@@ -10,3 +10,4 @@
 * [o.mg cable meterpreter android (youtube)](https://www.youtube.com/watch?v=LRVlaNfthbg)
 * [o.mg android payloads](https://github.com/hak5/omg-payloads/tree/master/payloads/library/mobile/android)
 * [o.mg android meterpreter payloads](https://github.com/hak5/omg-payloads/tree/master/payloads/library/mobile/android/meterpreter)
+* [Tutorial on android meterpreter](https://samsclass.info/128/proj/M410a.htm)

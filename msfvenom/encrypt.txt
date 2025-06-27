@@ -1,0 +1,11 @@
+
+Framework Encryption Formats [--encrypt <value>]
+================================================
+
+    Name
+    ----
+    aes256
+    base64
+    rc4
+    xor
+

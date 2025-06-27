@@ -3,3 +3,4 @@
 * [apksigner](https://developer.android.com/tools/apksigner)
 * [App Signing](https://developer.android.com/studio/publish/app-signing#generate-key)
 * [Android Studio](https://developer.android.com/studio)
+* [msfvenom docs](https://www.offsec.com/metasploit-unleashed/msfvenom/)

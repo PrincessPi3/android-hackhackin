@@ -1,0 +1,36 @@
+
+       Name: PHP Exec, PHP Command Shell, Bind TCP (via PHP)
+     Module: payload/cmd/unix/php/bind_php
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 1258
+       Rank: Normal
+
+Provided by:
+    Spencer McIntyre
+    msutovsky-r7
+    egypt <egypt@metasploit.com>
+    diaul <diaul@devilopers.org>
+
+Basic options:
+Name   Current Setting  Required  Description
+----   ---------------  --------  -----------
+LPORT  4444             yes       The listen port
+RHOST                   no        The target address
+
+Description:
+    Execute a PHP payload as an OS command from a Posix-compatible shell.
+
+    Listen for a connection and spawn a command shell via php
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

@@ -1,0 +1,38 @@
+
+       Name: Apple iOS aarch64 Command Shell, Reverse TCP Inline
+     Module: payload/apple_ios/aarch64/shell_reverse_tcp
+   Platform: Apple_iOS
+       Arch: aarch64
+Needs Admin: No
+ Total size: 152
+       Rank: Normal
+
+Provided by:
+
+Basic options:
+Name   Current Setting  Required  Description
+----   ---------------  --------  -----------
+LHOST                   yes       The listen address (an interface may be specified)
+LPORT  4444             yes       The listen port
+SHELL  /bin/sh          yes       The shell to execute.
+
+Description:
+    Connect back to attacker and spawn a command shell
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    ReverseAllowProxy           false            yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindAddress                   no        The specific IP address to bind to on the local system
+    ReverseListenerBindPort                      no        The port to bind to on the local system if different from LPORT
+    ReverseListenerComm                          no        The specific communication channel to use for this listener
+    ReverseListenerThreaded     false            yes       Handle every connection in a new thread (experimental)
+    StagerRetryCount            10               no        The number of times the stager should retry if the first connect fails
+    StagerRetryWait             5                no        Number of seconds to wait for the stager between reconnect attempts
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

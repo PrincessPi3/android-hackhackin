@@ -1,0 +1,76 @@
+
+       Name: Python Exec, Python Meterpreter, Python Reverse HTTPS Stager
+     Module: payload/cmd/unix/python/meterpreter/reverse_https
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ 
+Evasion options for payload/cmd/unix/python/meterpreter/reverse_https:
+=========================
+
+nt Setting  Required  Description
+----   ---------------  --------  -----------
+LHOST                   yes       The local listener hostname
+LPORT  8443             yes       The local listener port
+LURI                    no        The HTTP Path
+
+Description:
+    Execute a Python payload as an OS command from a Posix-compatible shell.
+
+    Run a meterpreter server in Python (compatible with 2.5-2.7 & 3.1+).
+
+    Tunnel communication over HTTP using SSL
+
+
+    Name                         Current Setting                                                                                                        Required  Description
+    ----                         ---------------                                                                                                        --------  -----------
+    AutoLoadStdapi               true                                                                                                                   yes       Automatically load the Stdapi extension
+    AutoRunScript                                                                                                                                       no        A script to run automatically on session creation.
+    AutoSystemInfo               true                                                                                                                   yes       Automatically capture system information on initialization.
+    AutoUnhookProcess            false                                                                                                                  yes       Automatically load the unhook extension and unhook the process
+    AutoVerifySessionTimeout     30                                                                                                                     no        Timeout period to wait for session validation to occur, in seconds
+    EnableStageEncoding          false                                                                                                                  no        Encode the second stage payload
+    EnableUnicodeEncoding        false                                                                                                                  yes       Automatically encode UTF-8 strings as hexadecimal
+    HandlerSSLCert                                                                                                                                      no        Path to a SSL certificate in unified PEM format, ignored for HTTP transports
+    HttpCookie                                                                                                                                          no        An optional value to use for the Cookie HTTP header
+    HttpHostHeader                                                                                                                                      no        An optional value to use for the Host HTTP header
+    HttpProxyHost                                                                                                                                       no        An optional proxy server IP address or hostname
+    HttpProxyPass                                                                                                                                       no        An optional proxy server password Max parameter length: 63 characters
+    HttpProxyPort                                                                                                                                       no        An optional proxy server port
+    HttpProxyUser                                                                                                                                       no        An optional proxy server username Max parameter length: 63 characters
+    HttpReferer                                                                                                                                         no        An optional value to use for the Referer HTTP header
+    HttpServerName               Apache                                                                                                                 no        The server header that the handler will send in response to requests
+    HttpUnknownRequestResponse   <html><body><h1>It works!</h1></body></html>                                                                           no        The returned HTML response body when the handler receives a request that is not from a payload
+    HttpUserAgent                Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36  no        The user-agent that the payload should use for communication Max parameter length: 255 characters
+    IgnoreUnknownPayloads        false                                                                                                                  no        Whether to drop connections from payloads using unknown UUIDs
+    InitialAutoRunScript                                                                                                                                no        An initial script to run on session creation (before AutoRunScript)
+    MeterpreterDebugBuild        false                                                                                                                  no        Enable debugging for the Python meterpreter
+    MeterpreterDebugLogging                                                                                                                             no        The Meterpreter debug logging configuration, see https://docs.metasploit.com/docs/using-metasploit/advanced/meterpreter/meterpreter-debugging-meterpreter-sessions.html
+    MeterpreterTryToFork         true                                                                                                                   no        Fork a new process if the functionality is available
+    OverrideLHOST                                                                                                                                       no        When OverrideRequestHost is set, use this value as the host name for secondary requests
+    OverrideLPORT                                                                                                                                       no        When OverrideRequestHost is set, use this value as the port number for secondary requests
+    OverrideRequestHost          false                                                                                                                  no        Forces a specific host and port instead of using what the client requests, defaults to LHOST:LPORT
+    OverrideScheme                                                                                                                                      no        When OverrideRequestHost is set, use this value as the scheme for secondary requests, e.g http or https
+    PayloadProcessCommandLine                                                                                                                           no        The displayed command line that will be used by the payload
+    PayloadUUIDName                                                                                                                                     no        A human-friendly name to reference this unique payload (requires tracking)
+    PayloadUUIDRaw                                                                                                                                      no        A hex string representing the raw 8-byte PUID value for the UUID
+    PayloadUUIDSeed                                                                                                                                     no        A string to use when generating the payload UUID (deterministic)
+    PayloadUUIDTracking          false                                                                                                                  yes       Whether or not to automatically register generated UUIDs
+    PingbackRetries              0                                                                                                                      yes       How many additional successful pingbacks
+    PingbackSleep                30                                                                                                                     yes       Time (in seconds) to sleep between pingbacks
+    ReverseAllowProxy            false                                                                                                                  yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindAddress                                                                                                                          no        The specific IP address to bind to on the local system
+    ReverseListenerBindPort                                                                                                                             no        The port to bind to on the local system if different from LPORT
+    ReverseListenerComm                                                                                                                                 no        The specific communication channel to use for this listener
+    SSLVersion                   Auto                                                                                                                   yes       Specify the version of SSL/TLS to be used (Auto, TLS and SSL23 are auto-negotiate) (Accepted: Auto, TLS, SSL23, SSL3, TLS1, TLS1.1, TLS1.2)
+    SessionCommunicationTimeout  300                                                                                                                    no        The number of seconds of no activity before this session should be killed
+    SessionExpirationTimeout     604800                                                                                                                 no        The number of seconds before this session should be forcibly shut down
+    SessionRetryTotal            3600                                                                                                                   no        Number of seconds try reconnecting for on network failure
+    SessionRetryWait             10                                                                                                                     no        Number of seconds to wait between reconnect attempts
+    StageEncoder                                                                                                                                        no        Encoder to use if EnableStageEncoding is set
+    StageEncoderSaveRegisters                                                                                                                           no        Additional registers to preserve in the staged payload if EnableStageEncoding is set
+    StageEncodingFallback        true                                                                                                                   no        Fallback to no encoding if the selected StageEncoder is not compatible
+    StagerVerifySSLCert          false                                                                                                                  no        Whether to verify the SSL certificate in Meterpreter
+    VERBOSE                      false                                                                                                                  no        Enable detailed status messages
+    WORKSPACE                                                                                                                                           no        Specify the workspace for this module
+

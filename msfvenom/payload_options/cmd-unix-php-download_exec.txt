@@ -1,0 +1,28 @@
+
+       Name: PHP Exec
+     Module: payload/cmd/unix/php/download_exec
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 1276
+       Rank: Normal
+
+Provided by:
+    Spencer McIntyre
+    msutovsky-r7
+    egypt <egypt@metasploit.com>
+
+Basic options:
+Name  Current Setting  Required  Description
+----  ---------------  --------  -----------
+URL                    yes       The pre-encoded URL to the executable
+
+Description:
+    Execute a PHP payload as an OS command from a Posix-compatible shell
+
+
+    Name       Current Setting  Required  Description
+    ----       ---------------  --------  -----------
+    VERBOSE    false            no        Enable detailed status messages
+    WORKSPACE                   no        Specify the workspace for this module
+

@@ -1,0 +1,33 @@
+
+       Name: Unix Command Shell, Bind TCP (via BusyBox telnetd)
+     Module: payload/cmd/unix/bind_busybox_telnetd
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 26
+       Rank: Normal
+
+Provided by:
+    Matthew Kienow <matthew_kienow[AT]rapid7.com>
+
+Basic options:
+Name       Current Setting  Required  Description
+----       ---------------  --------  -----------
+LOGIN_CMD  /bin/sh          yes       Command telnetd will execute on connect
+LPORT      4444             yes       The listen port
+RHOST                       no        The target address
+
+Description:
+    Listen for a connection and spawn a command shell via BusyBox telnetd
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand  pkill telnetd    yes       A command to run before the session is closed
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    TelnetdPath                 telnetd          yes       The path to the telnetd executable
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

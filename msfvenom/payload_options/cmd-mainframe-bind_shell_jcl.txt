@@ -1,0 +1,43 @@
+
+       Name: Z/OS (MVS) Command Shell, Bind TCP
+     Module: payload/cmd/mainframe/bind_shell_jcl
+   Platform: Mainframe
+       Arch: cmd
+Needs Admin: No
+ Total size: 10712
+       Rank: Normal
+
+Provided by:
+    Bigendian Smalls
+
+Basic options:
+Name      Current Setting       Required  Description
+----      ---------------       --------  -----------
+ACTNUM    MSFUSER-ACCTING-INFO  yes       Accounting info for JCL JOB card
+JCLASS    A                     yes       Job Class for JCL JOB card
+LHOST     0.0.0.0               yes       The listen address (an interface may be specified)
+LPORT     32700                 yes       The listen port
+MSGCLASS  Z                     yes       Message Class for JCL JOB card
+MSGLEVEL  (0,0)                 yes       Message Level for JCL JOB card
+NOTIFY                          no        Notify User for JCL JOB card
+PGMNAME   programmer name       yes       Programmer name for JCL JOB card
+RHOST                           no        The target address
+
+Description:
+    Provide JCL which creates a bind shell
+    This implementation does not include ebcdic character translation,
+    so a client with translation capabilities is required.  MSF handles
+    this automatically.
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    JOBNAME                     DUMMY            yes       Job name for JCL JOB card
+    NTFYUSR                     false            yes       Include NOTIFY Parm?
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

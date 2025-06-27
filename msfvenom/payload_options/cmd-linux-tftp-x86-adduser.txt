@@ -1,0 +1,79 @@
+
+       Name: TFTP Fetch, Linux Add User
+     Module: payload/cmd/linux/tftp/x86/adduser
+   Platform: Linux
+       Arch: cmd
+Needs Admin: Yes
+ Total size: 105
+       Rank: Normal
+
+Provided by:
+    Brendan Watters
+    Spencer McIntyre
+    skape <mmiller@hick.org>
+    vlad902 <vlad902@gmail.com>
+    spoonm <spoonm@no$email.com>
+
+Basic options:
+Name            Current Setting  Required  Description
+----            ---------------  --------  -----------
+FETCH_COMMAND   CURL             yes       Command to fetch payload (Accepted: CURL, FTP, TFTP, TNFTP, WGET)
+FETCH_DELETE    false            yes       Attempt to delete the binary after execution
+FETCH_FILELESS  none             yes       Attempt to run payload without touching disk by using anonymous handles, requires Linux ≥3.17 (for Python variant also Python ≥3.8 (Accepted: none, bash, python3.8+)
+FETCH_SRVHOST                    yes       Local IP to use for serving payload
+FETCH_SRVONCE   true             yes       Stop serving the payload after it is retrieved
+FETCH_SRVPORT   8080             yes       Local port to use for serving payload
+FETCH_URIPATH                    no        Local URI to use for serving payload
+PASS            metasploit       yes       The password for this user
+SHELL           /bin/sh          no        The shell for this user
+USER            metasploit       yes       The username to create
+
+
+When FETCH_COMMAND is one of CURL,WGET:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+
+When FETCH_FILELESS is none:
+
+Name                Current Setting  Required  Description
+----                ---------------  --------  -----------
+FETCH_FILENAME      RPWXdYqfI        no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_WRITABLE_DIR  ./               yes       Remote writable dir to store payload; cannot contain spaces
+
+Description:
+    Fetch and execute a x86 payload from a TFTP server.
+    Create a new user with UID 0
+
+
+    Name                      Current Setting  Required  Description
+    ----                      ---------------  --------  -----------
+    AppendExit                false            no        Prepend a stub that will break out of a chroot (includes setreuid to root)
+    EXE::Custom                                no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                false            no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack             false            no        Use the default template in case the specified one is missing
+    EXE::Inject               false            no        Set to preserve the original EXE function
+    EXE::OldMethod            false            no        Set to use the substitution EXE generation method.
+    EXE::Path                                  no        The directory in which to look for the executable template
+    EXE::Template                              no        The executable template file name.
+    FetchHandlerDisable       false            yes       Disable fetch handler
+    FetchListenerBindAddress                   no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                      no        The port to bind to if different from FETCH_SRVPORT
+    MSI::Custom                                no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                false            no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                  no        The directory in which to look for the msi template
+    MSI::Template                              no        The msi template file name
+    MSI::UAC                  false            no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    PrependChrootBreak        false            no        Prepend a stub that will break out of a chroot (includes setreuid to root)
+    PrependFork               false            no        Prepend a stub that starts the payload in its own process via fork
+    PrependSetgid             false            no        Prepend a stub that executes the setgid(0) system call
+    PrependSetregid           false            no        Prepend a stub that executes the setregid(0, 0) system call
+    PrependSetresgid          false            no        Prepend a stub that executes the setresgid(0, 0, 0) system call
+    PrependSetresuid          false            no        Prepend a stub that executes the setresuid(0, 0, 0) system call
+    PrependSetreuid           false            no        Prepend a stub that executes the setreuid(0, 0) system call
+    PrependSetuid             false            no        Prepend a stub that executes the setuid(0) system call
+    VERBOSE                   false            no        Enable detailed status messages
+    WORKSPACE                                  no        Specify the workspace for this module
+

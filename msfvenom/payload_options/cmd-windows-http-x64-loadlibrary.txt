@@ -1,0 +1,9 @@
+Options for payload/cmd/windows/http/x64/loadlibrary:
+=========================
+
+/usr/share/metasploit-framework/modules/payloads/singles/windows/x64/loadlibrary.rb:58:in `generate': wrong number of arguments (given 1, expected 0) (ArgumentError)
+	from /usr/share/metasploit-framework/lib/msf/core/payload/adapter/fetch.rb:94:in `generate'
+	from /usr/share/metasploit-framework/lib/msf/core/payload.rb:195:in `size'
+	from /usr/share/metasploit-framework/lib/msf/base/serializer/readable_text.rb:500:in `dump_payload_module'
+	from /usr/share/metasploit-framework/lib/msf/base/serializer/readable_text.rb:26:in `dump_module'
+	from /usr/bin/msfvenom:461:in `<main>'

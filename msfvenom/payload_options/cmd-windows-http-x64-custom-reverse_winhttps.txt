@@ -1,0 +1,101 @@
+
+       Name: HTTP Fetch, Windows shellcode stage, Windows x64 Reverse HTTPS Stager (winhttp)
+     Module: payload/cmd/windows/http/x64/custom/reverse_winhttps
+   Platform: Windows
+       Arch: cm
+Evasion options for payload/cmd/windows/http/x64/custom/reverse_winhttps:
+=========================
+
+r7
+    OJ Reeves
+
+Basic options:
+Name                Current Setting  Required  Description
+----                ---------------  --------  -----------
+EXITFUNC            process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+FETCH_COMMAND       CERTUTIL         yes       Command to fetch payload (Accepted: CURL, TFTP, CERTUTIL)
+FETCH_DELETE        false            yes       Attempt to delete the binary after execution
+FETCH_FILENAME      HFdHiOGjV        no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_SRVHOST                        no        Local IP to use for serving payload
+FETCH_SRVPORT       8080             yes       Local port to use for serving payload
+FETCH_URIPATH                        no        Local URI to use for serving payload
+FETCH_WRITABLE_DIR  %TEMP%           yes       Remote writable dir to store payload; cannot contain spaces.
+LHOST                                yes       The local listener hostname
+LPORT               8443             yes       The local listener port
+LURI                                 no        The HTTP Path
+SHELLCODE_FILE                       no        Shellcode bin to launch
+
+
+When FETCH_COMMAND is one of CURL:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+Description:
+    Fetch and execute an x64 payload from an HTTP server.
+    Custom shellcode stage.
+
+    Tunnel communication over HTTPS (Windows x64 winhttp)
+
+
+    Name                        Current Setting                                                                                                         Required  Description
+    ----                        ---------------                                                                                                         --------  -----------
+    EXE::Custom                                                                                                                                         no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                  false                                                                                                                   no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack               false                                                                                                                   no        Use the default template in case the specified one is missing
+    EXE::Inject                 false                                                                                                                   no        Set to preserve the original EXE function
+    EXE::OldMethod              false                                                                                                                   no        Set to use the substitution EXE generation method.
+    EXE::Path                                                                                                                                           no        The directory in which to look for the executable template
+    EXE::Template                                                                                                                                       no        The executable template file name.
+    EnableStageEncoding         false                                                                                                                   no        Encode the second stage payload
+    FetchHandlerDisable         false                                                                                                                   yes       Disable fetch handler
+    FetchHttpServerName         Apache                                                                                                                  yes       Fetch HTTP server name
+    FetchListenerBindAddress                                                                                                                            no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                                                                                                                               no        The port to bind to if different from FETCH_SRVPORT
+    HandlerSSLCert                                                                                                                                      no        Path to a SSL certificate in unified PEM format
+    HttpCookie                                                                                                                                          no        An optional value to use for the Cookie HTTP header
+    HttpHostHeader                                                                                                                                      no        An optional value to use for the Host HTTP header
+    HttpProxyHost                                                                                                                                       no        An optional proxy server IP address or hostname
+    HttpProxyIE                 true                                                                                                                    no        Enable use of IE proxy settings
+    HttpProxyPass                                                                                                                                       no        An optional proxy server password Max parameter length: 63 characters
+    HttpProxyPort                                                                                                                                       no        An optional proxy server port
+    HttpProxyType               HTTP                                                                                                                    yes       The type of HTTP proxy (Accepted: HTTP, SOCKS)
+    HttpProxyUser                                                                                                                                       no        An optional proxy server username Max parameter length: 63 characters
+    HttpReferer                                                                                                                                         no        An optional value to use for the Referer HTTP header
+    HttpServerName              Apache                                                                                                                  no        The server header that the handler will send in response to requests
+    HttpUnknownRequestResponse  <html><body><h1>It works!</h1></body></html>                                                                            no        The returned HTML response body when the handler receives a request that is not from a payload
+    HttpUserAgent               Mozilla/5.0 (Macintosh; Intel Mac OS X 14_7_2) AppleWebKit/605.1.15 (KHTML, like Gecko) Version/17.4.1 Safari/605.1.15  no        The user-agent that the payload should use for communication Max parameter length: 255 characters
+    IgnoreUnknownPayloads       false                                                                                                                   no        Whether to drop connections from payloads using unknown UUIDs
+    MSI::Custom                                                                                                                                         no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                  false                                                                                                                   no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                                                                                                                           no        The directory in which to look for the msi template
+    MSI::Template                                                                                                                                       no        The msi template file name
+    MSI::UAC                    false                                                                                                                   no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    OverrideLHOST                                                                                                                                       no        When OverrideRequestHost is set, use this value as the host name for secondary requests
+    OverrideLPORT                                                                                                                                       no        When OverrideRequestHost is set, use this value as the port number for secondary requests
+    OverrideRequestHost         false                                                                                                                   no        Forces a specific host and port instead of using what the client requests, defaults to LHOST:LPORT
+    OverrideScheme                                                                                                                                      no        When OverrideRequestHost is set, use this value as the scheme for secondary requests, e.g http or https
+    PayloadUUIDName                                                                                                                                     no        A human-friendly name to reference this unique payload (requires tracking)
+    PayloadUUIDRaw                                                                                                                                      no        A hex string representing the raw 8-byte PUID value for the UUID
+    PayloadUUIDSeed                                                                                                                                     no        A string to use when generating the payload UUID (deterministic)
+    PayloadUUIDTracking         false                                                                                                                   yes       Whether or not to automatically register generated UUIDs
+    PingbackRetries             0                                                                                                                       yes       How many additional successful pingbacks
+    PingbackSleep               30                                                                                                                      yes       Time (in seconds) to sleep between pingbacks
+    PrependMigrate              false                                                                                                                   yes       Spawns and runs shellcode in new process
+    PrependMigrateProc                                                                                                                                  no        Process to spawn and run shellcode in
+    ReverseAllowProxy           false                                                                                                                   yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindAddress                                                                                                                          no        The specific IP address to bind to on the local system
+    ReverseListenerBindPort                                                                                                                             no        The port to bind to on the local system if different from LPORT
+    ReverseListenerComm                                                                                                                                 no        The specific communication channel to use for this listener
+    SSLVersion                  Auto                                                                                                                    yes       Specify the version of SSL/TLS to be used (Auto, TLS and SSL23 are auto-negotiate) (Accepted: Auto, TLS, SSL23, SSL3, TLS1, TLS1.1, TLS1.2)
+    StageEncoder                                                                                                                                        no        Encoder to use if EnableStageEncoding is set
+    StageEncoderSaveRegisters                                                                                                                           no        Additional registers to preserve in the staged payload if EnableStageEncoding is set
+    StageEncodingFallback       true                                                                                                                    no        Fallback to no encoding if the selected StageEncoder is not compatible
+    StagerRetryCount            10                                                                                                                      no        The number of times the stager should retry if the first connect fails
+    StagerRetryWait             5                                                                                                                       no        Number of seconds to wait for the stager between reconnect attempts
+    StagerURILength                                                                                                                                     no        The URI length for the stager (at least 5 bytes)
+    StagerVerifySSLCert         false                                                                                                                   no        Whether to verify the SSL certificate hash in the handler
+    VERBOSE                     false                                                                                                                   no        Enable detailed status messages
+    WORKSPACE                                                                                                                                           no        Specify the workspace for this module
+

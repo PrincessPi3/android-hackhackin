@@ -1,0 +1,43 @@
+
+       Name: Add user with useradd
+     Module: payload/cmd/unix/adduser
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 153
+       Rank: Normal
+
+Provided by:
+    Nick Cottrell <Rad10Logic>
+
+Basic options:
+Name  Current Setting  Required  Description
+----  ---------------  --------  -----------
+PASS  Metasploit$1     yes       The password for this user
+USER  metasploit       yes       The username to create
+
+Description:
+    Creates a new user. By default the new user is set with sudo
+    but other options exist to make the new user automatically
+    root but this is not automatically set since the new user will
+    be treated as root (and login may be difficult). The new user
+    can also be set as just a standard user if desired.
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    RootMethod                  SUDO             no        The method to obtain root with the new user (Accepted: SUID, SUDO, NONE)
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+
+
+    When RootMethod is SUDO:
+
+    Name          Current Setting  Required  Description
+    ----          ---------------  --------  -----------
+    CheckSudoers  true             no        Check if the sudoers file exists before modifying it
+

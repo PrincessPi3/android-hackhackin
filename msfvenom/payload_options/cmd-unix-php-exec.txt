@@ -1,0 +1,10 @@
+Options for payload/cmd/unix/php/exec:
+=========================
+
+/usr/share/metasploit-framework/modules/payloads/singles/php/exec.rb:35:in `php_exec_cmd': undefined method `shell' for #<#<Class:0x0000007f6c587460>:0x0000007f6cf9c450> (NoMethodError)
+	from /usr/share/metasploit-framework/modules/payloads/singles/php/exec.rb:47:in `generate'
+	from /usr/share/metasploit-framework/modules/payloads/adapters/cmd/unix/php.rb:34:in `generate'
+	from /usr/share/metasploit-framework/lib/msf/core/payload.rb:195:in `size'
+	from /usr/share/metasploit-framework/lib/msf/base/serializer/readable_text.rb:500:in `dump_payload_module'
+	from /usr/share/metasploit-framework/lib/msf/base/serializer/readable_text.rb:26:in `dump_module'
+	from /usr/bin/msfvenom:461:in `<main>'

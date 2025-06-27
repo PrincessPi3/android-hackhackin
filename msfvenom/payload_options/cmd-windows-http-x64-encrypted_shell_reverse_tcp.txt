@@ -1,0 +1,86 @@
+
+       Name: HTTP Fetch, Windows Encrypted Reverse Shell
+     Module: payload/cmd/windows/http/x64/encrypted_shell_reverse_tcp
+   Platform: Windows
+       Arch: cmd
+Needs Admin: No
+ Total size: 127
+       Rank: Normal
+
+Provided by:
+    Brendan Watters
+    Matt Graeber
+    Shelby Pace
+
+Basic options:
+Name                Current Setting                   Required  Description
+----                ---------------                   --------  -----------
+CallWSAStartup      true                              no        Adds the function that initializes the Winsock library
+ChachaKey           dd744743740715ec998e1efd5ac41906  no        The initial key to encrypt payload traffic with
+ChachaNonce         6fbcbd62f796                      no        The initial nonce to use to encrypt payload traffic with
+EXITFUNC            process                           yes       Exit technique (Accepted: '', seh, thread, process, none)
+FETCH_COMMAND       CERTUTIL                          yes       Command to fetch payload (Accepted: CURL, TFTP, CERTUTIL)
+FETCH_DELETE        false                             yes       Attempt to delete the binary after execution
+FETCH_FILENAME      FGysnoEdPz                        no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_SRVHOST                                         no        Local IP to use for serving payload
+FETCH_SRVPORT       8080                              yes       Local port to use for serving payload
+FETCH_URIPATH                                         no        Local URI to use for serving payload
+FETCH_WRITABLE_DIR  %TEMP%                            yes       Remote writable dir to store payload; cannot contain spaces.
+LHOST                                                 yes       The listen address (an interface may be specified)
+LPORT               4444                              yes       The listen port
+
+
+When FETCH_COMMAND is one of CURL:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+Description:
+    Fetch and execute an x64 payload from an HTTP server.
+    Connect back to attacker and spawn an encrypted command shell
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    EXE::Custom                                  no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                  false            no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack               false            no        Use the default template in case the specified one is missing
+    EXE::Inject                 false            no        Set to preserve the original EXE function
+    EXE::OldMethod              false            no        Set to use the substitution EXE generation method.
+    EXE::Path                                    no        The directory in which to look for the executable template
+    EXE::Template                                no        The executable template file name.
+    FetchHandlerDisable         false            yes       Disable fetch handler
+    FetchHttpServerName         Apache           yes       Fetch HTTP server name
+    FetchListenerBindAddress                     no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                        no        The port to bind to if different from FETCH_SRVPORT
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    KeepExe                     false            no        Keep executable after compiling the payload
+    KeepSrc                     false            no        Keep source code after compiling it
+    MSI::Custom                                  no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                  false            no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                    no        The directory in which to look for the msi template
+    MSI::Template                                no        The msi template file name
+    MSI::UAC                    false            no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    OptLevel                    O2               no        The optimization level to compile with (Accepted: Og, Os, O0, O1, O2, O3)
+    PayloadUUIDName                              no        A human-friendly name to reference this unique payload (requires tracking)
+    PayloadUUIDRaw                               no        A hex string representing the raw 8-byte PUID value for the UUID
+    PayloadUUIDSeed                              no        A string to use when generating the payload UUID (deterministic)
+    PayloadUUIDTracking         true             yes       Whether or not to automatically register generated UUIDs
+    PrependMigrate              false            yes       Spawns and runs shellcode in new process
+    PrependMigrateProc                           no        Process to spawn and run shellcode in
+    ReverseAllowProxy           false            yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindAddress                   no        The specific IP address to bind to on the local system
+    ReverseListenerBindPort                      no        The port to bind to on the local system if different from LPORT
+    ReverseListenerComm                          no        The specific communication channel to use for this listener
+    ReverseListenerThreaded     false            yes       Handle every connection in a new thread (experimental)
+    ShowCompileCMD              false            no        Display the command used to compile payload
+    StagerRetryCount            10               no        The number of times the stager should retry if the first connect fails
+    StagerRetryWait             5                no        Number of seconds to wait for the stager between reconnect attempts
+    StripSymbols                true             no        Payload will be compiled without symbols
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

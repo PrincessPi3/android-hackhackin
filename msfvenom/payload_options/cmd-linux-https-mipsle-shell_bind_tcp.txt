@@ -1,0 +1,79 @@
+
+       Name: HTTPS Fetch, Linux Command Shell, Bind TCP Inline
+     Module: payload/cmd/linux/https/mipsle/shell_bind_tcp
+   Platform: Linux
+       Arch: cmd
+Needs Admin: No
+ Total size: 107
+       Rank: Normal
+
+Provided by:
+    Brendan Watters
+    Spencer McIntyre
+    scut
+    vaicebine
+    Vlatko Kosturjak
+    juan vazquez <juan.vazquez@metasploit.com>
+
+Basic options:
+Name              Current Setting  Required  Description
+----              ---------------  --------  -----------
+FETCH_CHECK_CERT  false            yes       Check SSL certificate
+FETCH_COMMAND     CURL             yes       Command to fetch payload (Accepted: CURL, FTP, TFTP, TNFTP, WGET)
+FETCH_DELETE      false            yes       Attempt to delete the binary after execution
+FETCH_FILELESS    none             yes       Attempt to run payload without touching disk by using anonymous handles, requires Linux ≥3.17 (for Python variant also Python ≥3.8 (Accepted: none, bash, python3.8+)
+FETCH_SRVHOST                      yes       Local IP to use for serving payload
+FETCH_SRVPORT     8080             yes       Local port to use for serving payload
+FETCH_URIPATH                      no        Local URI to use for serving payload
+LPORT             4444             yes       The listen port
+RHOST                              no        The target address
+
+
+When FETCH_COMMAND is one of CURL,WGET:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+
+When FETCH_FILELESS is none:
+
+Name                Current Setting  Required  Description
+----                ---------------  --------  -----------
+FETCH_FILENAME      aplZKBCxH        no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_WRITABLE_DIR  ./               yes       Remote writable dir to store payload; cannot contain spaces
+
+Description:
+    Fetch and execute an MIPSLE payload from an HTTPS server.
+    Listen for a connection and spawn a command shell
+
+
+    Name                        Current Setting  Required  Description
+    ----                        ---------------  --------  -----------
+    AutoRunScript                                no        A script to run automatically on session creation.
+    AutoVerifySession           true             yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                   no        A command to run before the session is closed
+    EXE::Custom                                  no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                  false            no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack               false            no        Use the default template in case the specified one is missing
+    EXE::Inject                 false            no        Set to preserve the original EXE function
+    EXE::OldMethod              false            no        Set to use the substitution EXE generation method.
+    EXE::Path                                    no        The directory in which to look for the executable template
+    EXE::Template                                no        The executable template file name.
+    FetchHandlerDisable         false            yes       Disable fetch handler
+    FetchHttpServerName         Apache           yes       Fetch HTTP server name
+    FetchListenerBindAddress                     no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                        no        The port to bind to if different from FETCH_SRVPORT
+    FetchSSLCert                                 no        Path to a custom SSL certificate (default is randomly generated)
+    FetchSSLCipher                               no        String for SSL cipher spec - "DHE-RSA-AES256-SHA" or "ADH"
+    FetchSSLCompression         false            no        Enable SSL/TLS-level compression
+    FetchSSLVersion             Auto             yes       Specify the version of SSL/TLS to be used (Auto, TLS and SSL23 are auto-negotiate) (Accepted: Auto, TLS, SSL23, SSL3, TLS1, TLS1.1, TLS1.2)
+    InitialAutoRunScript                         no        An initial script to run on session creation (before AutoRunScript)
+    MSI::Custom                                  no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                  false            no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                    no        The directory in which to look for the msi template
+    MSI::Template                                no        The msi template file name
+    MSI::UAC                    false            no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    VERBOSE                     false            no        Enable detailed status messages
+    WORKSPACE                                    no        Specify the workspace for this module
+

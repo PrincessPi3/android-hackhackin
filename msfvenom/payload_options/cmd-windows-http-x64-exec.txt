@@ -1,0 +1,61 @@
+
+       Name: HTTP Fetch, Windows x64 Execute Command
+     Module: payload/cmd/windows/http/x64/exec
+   Platform: Windows
+       Arch: cmd
+Needs Admin: No
+ Total size: 127
+       Rank: Normal
+
+Provided by:
+    Brendan Watters
+    sf <stephen_fewer@harmonysecurity.com>
+
+Basic options:
+Name                Current Setting  Required  Description
+----                ---------------  --------  -----------
+CMD                                  yes       The command string to execute
+EXITFUNC            process          yes       Exit technique (Accepted: '', seh, thread, process, none)
+FETCH_COMMAND       CERTUTIL         yes       Command to fetch payload (Accepted: CURL, TFTP, CERTUTIL)
+FETCH_DELETE        false            yes       Attempt to delete the binary after execution
+FETCH_FILENAME      ZYiHMftPEs       no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_SRVHOST                        yes       Local IP to use for serving payload
+FETCH_SRVPORT       8080             yes       Local port to use for serving payload
+FETCH_URIPATH                        no        Local URI to use for serving payload
+FETCH_WRITABLE_DIR  %TEMP%           yes       Remote writable dir to store payload; cannot contain spaces.
+
+
+When FETCH_COMMAND is one of CURL:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+Description:
+    Fetch and execute an x64 payload from an HTTP server.
+    Execute an arbitrary command (Windows x64)
+
+
+    Name                      Current Setting  Required  Description
+    ----                      ---------------  --------  -----------
+    EXE::Custom                                no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                false            no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack             false            no        Use the default template in case the specified one is missing
+    EXE::Inject               false            no        Set to preserve the original EXE function
+    EXE::OldMethod            false            no        Set to use the substitution EXE generation method.
+    EXE::Path                                  no        The directory in which to look for the executable template
+    EXE::Template                              no        The executable template file name.
+    FetchHandlerDisable       false            yes       Disable fetch handler
+    FetchHttpServerName       Apache           yes       Fetch HTTP server name
+    FetchListenerBindAddress                   no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                      no        The port to bind to if different from FETCH_SRVPORT
+    MSI::Custom                                no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                false            no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                  no        The directory in which to look for the msi template
+    MSI::Template                              no        The msi template file name
+    MSI::UAC                  false            no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    PrependMigrate            false            yes       Spawns and runs shellcode in new process
+    PrependMigrateProc                         no        Process to spawn and run shellcode in
+    VERBOSE                   false            no        Enable detailed status messages
+    WORKSPACE                                  no        Specify the workspace for this module
+

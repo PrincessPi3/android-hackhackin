@@ -1,0 +1,30 @@
+
+       Name: Unix Command Shell, Pingback Bind TCP (via netcat)
+     Module: payload/cmd/unix/pingback_bind
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 103
+       Rank: Normal
+
+Provided by:
+    asoto-r7
+
+Basic options:
+Name   Current Setting  Required  Description
+----   ---------------  --------  -----------
+LPORT  4444             yes       The listen port
+RHOST                   no        The target address
+
+Description:
+    Accept a connection, send a UUID, then exit
+
+
+    Name             Current Setting  Required  Description
+    ----             ---------------  --------  -----------
+    NetcatPath       nc               yes       The path to the Netcat executable
+    PingbackRetries  0                yes       How many additional successful pingbacks
+    PingbackSleep    30               yes       Time (in seconds) to sleep between pingbacks
+    VERBOSE          false            no        Enable detailed status messages
+    WORKSPACE                         no        Specify the workspace for this module
+

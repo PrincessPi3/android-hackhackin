@@ -1,0 +1,103 @@
+
+       Name: HTTPS Fetch
+     Module: payload/cmd/linux/https/x86/meterpreter_reverse_tcp
+   Platform: Linux
+       Arch: cmd
+Needs Admin: No
+ Total size: 107
+       Rank: Normal
+
+Provided by:
+
+Evasion options for payload/cmd/linux/https/x86/meterpreter_reverse_tcp:
+=========================
+
+rent_cook@rapid7.com>
+    timwr
+
+Basic options:
+Name              Current Setting  Required  Description
+----              ---------------  --------  -----------
+FETCH_CHECK_CERT  false            yes       Check SSL certificate
+FETCH_COMMAND     CURL             yes       Command to fetch payload (Accepted: CURL, FTP, TFTP, TNFTP, WGET)
+FETCH_DELETE      false            yes       Attempt to delete the binary after execution
+FETCH_FILELESS    none             yes       Attempt to run payload without touching disk by using anonymous handles, requires Linux ≥3.17 (for Python variant also Python ≥3.8 (Accepted: none, bash, python3.8+)
+FETCH_SRVHOST                      no        Local IP to use for serving payload
+FETCH_SRVPORT     8080             yes       Local port to use for serving payload
+FETCH_URIPATH                      no        Local URI to use for serving payload
+LHOST                              yes       The listen address (an interface may be specified)
+LPORT             4444             yes       The listen port
+
+
+When FETCH_COMMAND is one of CURL,WGET:
+
+Name        Current Setting  Required  Description
+----        ---------------  --------  -----------
+FETCH_PIPE  false            yes       Host both the binary payload and the command so it can be piped directly to the shell.
+
+
+When FETCH_FILELESS is none:
+
+Name                Current Setting  Required  Description
+----                ---------------  --------  -----------
+FETCH_FILENAME      MxocCAOef        no        Name to use on remote system when storing payload; cannot contain spaces or slashes
+FETCH_WRITABLE_DIR  ./               yes       Remote writable dir to store payload; cannot contain spaces
+
+Description:
+    Fetch and execute an x86 payload from an HTTPS server.
+
+
+    Name                         Current Setting  Required  Description
+    ----                         ---------------  --------  -----------
+    AutoLoadStdapi               true             yes       Automatically load the Stdapi extension
+    AutoRunScript                                 no        A script to run automatically on session creation.
+    AutoSystemInfo               true             yes       Automatically capture system information on initialization.
+    AutoUnhookProcess            false            yes       Automatically load the unhook extension and unhook the process
+    AutoVerifySessionTimeout     30               no        Timeout period to wait for session validation to occur, in seconds
+    EXE::Custom                                   no        Use custom exe instead of automatically generating a payload exe
+    EXE::EICAR                   false            no        Generate an EICAR file instead of regular payload exe
+    EXE::FallBack                false            no        Use the default template in case the specified one is missing
+    EXE::Inject                  false            no        Set to preserve the original EXE function
+    EXE::OldMethod               false            no        Set to use the substitution EXE generation method.
+    EXE::Path                                     no        The directory in which to look for the executable template
+    EXE::Template                                 no        The executable template file name.
+    EnableUnicodeEncoding        false            yes       Automatically encode UTF-8 strings as hexadecimal
+    FetchHandlerDisable          false            yes       Disable fetch handler
+    FetchHttpServerName          Apache           yes       Fetch HTTP server name
+    FetchListenerBindAddress                      no        The specific IP address to bind to to serve the payload if different from FETCH_SRVHOST
+    FetchListenerBindPort                         no        The port to bind to if different from FETCH_SRVPORT
+    FetchSSLCert                                  no        Path to a custom SSL certificate (default is randomly generated)
+    FetchSSLCipher                                no        String for SSL cipher spec - "DHE-RSA-AES256-SHA" or "ADH"
+    FetchSSLCompression          false            no        Enable SSL/TLS-level compression
+    FetchSSLVersion              Auto             yes       Specify the version of SSL/TLS to be used (Auto, TLS and SSL23 are auto-negotiate) (Accepted: Auto, TLS, SSL23, SSL3, TLS1, TLS1.1, TLS1.2)
+    HandlerSSLCert                                no        Path to a SSL certificate in unified PEM format, ignored for HTTP transports
+    InitialAutoRunScript                          no        An initial script to run on session creation (before AutoRunScript)
+    MSI::Custom                                   no        Use custom msi instead of automatically generating a payload msi
+    MSI::EICAR                   false            no        Generate an EICAR file instead of regular payload msi
+    MSI::Path                                     no        The directory in which to look for the msi template
+    MSI::Template                                 no        The msi template file name
+    MSI::UAC                     false            no        Create an MSI with a UAC prompt (elevation to SYSTEM if accepted)
+    MeterpreterDebugBuild        false            no        Use a debug version of Meterpreter
+    MeterpreterDebugLogging                       no        The Meterpreter debug logging configuration, see https://docs.metasploit.com/docs/using-metasploit/advanced/meterpreter/meterpreter-debugging-meterpreter-sessions.html
+    MeterpreterTryToFork         false            no        Fork a new process if the functionality is available
+    PayloadProcessCommandLine                     no        The displayed command line that will be used by the payload
+    PayloadUUIDName                               no        A human-friendly name to reference this unique payload (requires tracking)
+    PayloadUUIDRaw                                no        A hex string representing the raw 8-byte PUID value for the UUID
+    PayloadUUIDSeed                               no        A string to use when generating the payload UUID (deterministic)
+    PayloadUUIDTracking          false            yes       Whether or not to automatically register generated UUIDs
+    PingbackRetries              0                yes       How many additional successful pingbacks
+    PingbackSleep                30               yes       Time (in seconds) to sleep between pingbacks
+    ReverseAllowProxy            false            yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindAddress                    no        The specific IP address to bind to on the local system
+    ReverseListenerBindPort                       no        The port to bind to on the local system if different from LPORT
+    ReverseListenerComm                           no        The specific communication channel to use for this listener
+    ReverseListenerThreaded      false            yes       Handle every connection in a new thread (experimental)
+    SessionCommunicationTimeout  300              no        The number of seconds of no activity before this session should be killed
+    SessionExpirationTimeout     604800           no        The number of seconds before this session should be forcibly shut down
+    SessionRetryTotal            3600             no        Number of seconds try reconnecting for on network failure
+    SessionRetryWait             10               no        Number of seconds to wait between reconnect attempts
+    StagerRetryCount             10               no        The number of times the stager should retry if the first connect fails
+    StagerRetryWait              5                no        Number of seconds to wait for the stager between reconnect attempts
+    VERBOSE                      false            no        Enable detailed status messages
+    WORKSPACE                                     no        Specify the workspace for this module
+

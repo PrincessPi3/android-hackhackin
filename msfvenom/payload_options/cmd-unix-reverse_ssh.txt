@@ -1,0 +1,38 @@
+
+       Name: Unix Command Shell, Reverse TCP SSH
+     Module: payload/cmd/unix/reverse_ssh
+   Platform: Unix
+       Arch: cmd
+Needs Admin: No
+ Total size: 146
+       Rank: Normal
+
+Provided by:
+    RageLtMan <rageltman@sempervictus>
+    hirura
+
+Basic options:
+Name   Current Setting  Required  Description
+----   ---------------  --------  -----------
+LHOST                   yes       The listen address (an interface may be specified)
+LPORT  22               yes       The listen port
+
+Description:
+    Connect back and create a command shell via SSH
+
+
+    Name                        Current Setting                                        Required  Description
+    ----                        ---------------                                        --------  -----------
+    AutoRunScript                                                                      no        A script to run automatically on session creation.
+    AutoVerifySession           true                                                   yes       Automatically verify and drop invalid sessions
+    CommandShellCleanupCommand                                                         no        A command to run before the session is closed
+    InitialAutoRunScript                                                               no        An initial script to run on session creation (before AutoRunScript)
+    ReverseAllowProxy           false                                                  yes       Allow reverse tcp even with Proxies specified. Connect back will NOT go through proxy but directly to LHOST
+    ReverseListenerBindPort                                                            no        The port to bind to on the local system if different from LPORT
+    SSHPath                     ssh                                                    yes       The path to the SSH executable
+    ShellPath                   /bin/sh                                                yes       The path to the shell to execute
+    Ssh::Version                SSH-2.0-OpenSSH_5.3p1                                  yes       The SSH version string to provide
+    SshClientOptions            UserKnownHostsFile=/dev/null StrictHostKeyChecking=no  no        Space separated options for the ssh client
+    VERBOSE                     false                                                  no        Enable detailed status messages
+    WORKSPACE                                                                          no        Specify the workspace for this module
+

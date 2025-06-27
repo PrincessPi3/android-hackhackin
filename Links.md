@@ -1,0 +1,5 @@
+* [ROBTRT421/apk.android.meterpreter.msfvenom](https://github.com/ROBTRT421/apk.android.meterpreter.msfvenom)
+* [AzeemIdrisi/PhoneSploit-Pro](https://github.com/AzeemIdrisi/PhoneSploit-Pro)
+* [apksigner](https://developer.android.com/tools/apksigner)
+* [App Signing](https://developer.android.com/studio/publish/app-signing#generate-key)
+* [Android Studio](https://developer.android.com/studio)
